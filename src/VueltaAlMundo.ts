@@ -2,7 +2,7 @@ import * as BABYLON from 'babylonjs';
 import 'babylonjs-loaders';
 
 //para que funcionen los mudos glb o babylon hay que importarlos
-import VueltaAlMundoAnimada from './assets/model/VueltaAlMundoAnimada.glb';
+let VueltaAlMundoAnimada = require( './assets/model/VueltaAlMundoAnimada.glb');
 
 
 export class VueltaAlMundo
@@ -11,7 +11,7 @@ export class VueltaAlMundo
 
     constructor(scene:BABYLON.Scene)
     {
-        BABYLON.SceneLoader.ImportMesh("", "./assets/model/", "VueltaAlMundoAnimada.glb", scene,
+        BABYLON.SceneLoader.ImportMesh("", "./assets/model/", VueltaAlMundoAnimada.default, scene,
             function (meshes,particle,Skeleton)
             {
                 this._mesh = scene.getNodeByName("VueltaAlMundoAnimada") as BABYLON.Mesh;
